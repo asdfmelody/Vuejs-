@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="getTodos">todo 가져오기</button>
+        <ul>
+            <div v-for = "todo in todos" v-bind:key="todo.id">
+                <li>{{ todo.title}}</li>
+            </div>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.26.1/dist/axios.min.js"></script>
+    <script>
+        const app = new Vue({
+            el : "#app",
+            data:{
+                todos:[]
+            },
+            methods:{
+                async getTodos(){
+                    try{
+                        const response= await axios.get("https://koreanjson.com/todos");
+                        this.todos=response.data;
+                        console.log(response.data);
+                        
+                    }catch(error){
+                        console.log(error);
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

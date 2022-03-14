@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if = "renderA">
+            <div>a</div>
+            <div>b</div>
+            <div>c</div>
+        </div>
+        <div v-if = "renderB">
+            <div>d</div>
+            <div>e</div>
+        </div>
+        <div v-if = "renderC">
+            <div>f</div>
+            <div>g</div>
+        </div>
+        <button @click="changeabc">클릭</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script>
+        const app=new Vue({
+            el: "#app",
+            data:{
+                renderA:true,
+                renderB:false,
+                renderC:false,
+            },
+            methods:{
+                changeabc(){
+                    if(this.renderA){
+                        this.renderA=false;
+                        this.renderB=true;
+                        this.renderC=false;
+                    }
+                    else if(this.renderB){
+                        this.renderA=false;
+                        this.renderB=false;
+                        this.renderC=true;
+                    }
+                    else{
+                        this.renderA=true;
+                        this.renderB=false;
+                        this.renderC=false;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
