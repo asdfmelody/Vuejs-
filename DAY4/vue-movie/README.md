@@ -1,4 +1,12 @@
-# vue-starting-template
+# Movie Website
+## Preview
+
+## Project Details
+### Home
+
+### Search
+
+### Detail
 
 ## Project setup
 ```
