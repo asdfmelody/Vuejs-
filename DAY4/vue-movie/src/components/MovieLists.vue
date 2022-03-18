@@ -17,9 +17,6 @@
           <div class="movie-date">
             {{movie.release_date}}
           </div>
-          <div class="movie-date">
-            {{movie.release_date}}
-          </div>
         </div>
     </div>
     
